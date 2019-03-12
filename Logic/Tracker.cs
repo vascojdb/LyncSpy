@@ -41,7 +41,7 @@ namespace LyncTracker.Logic
                 _cList.Add(c);
                 c.ContactInformationChanged+= c_ContactInformationChanged;
                 ContactAvailability availEnum = (ContactAvailability)c.GetContactInformation(ContactInformationType.Availability);
-                _cn.SendStatusChange((string)((List<object>)c.GetContactInformation(ContactInformationType.EmailAddresses)).First(), availEnum);
+                _cn.SendStatusChange((string)((List<object>)c.GetContactInformation(ContactInformationType.EmailAddresses)).Last(), availEnum);
             }
             catch
             {
@@ -120,7 +120,7 @@ namespace LyncTracker.Logic
 
                     Contact c = ((Contact)sender);
                     List<object> list = (List<object>)(((Contact)sender).GetContactInformation(ContactInformationType.EmailAddresses));
-                    _cn.SendStatusChange((string)list.First(), ((string)c.GetContactInformation(ContactInformationType.LastName)),
+                    _cn.SendStatusChange((string)list.Last(), ((string)c.GetContactInformation(ContactInformationType.LastName)),
                                         ((string)c.GetContactInformation(ContactInformationType.FirstName)),
                                         availEnum, DateTime.Now.ToLocalTime());
                 }

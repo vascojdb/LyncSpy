@@ -117,11 +117,16 @@ namespace LyncTracker
                 statusList.Add(ContactAvailability.FreeIdle);
             }
             if (checkedList.Any(it=>it.Text=="Away"))
+            {
                 statusList.Add(ContactAvailability.Away);
+                statusList.Add(ContactAvailability.TemporarilyAway);
+                statusList.Add(ContactAvailability.Offline);
+            }
             if (clbStatuses.CheckedItems.ContainsKey("Busy"))
             {
                 statusList.Add(ContactAvailability.Busy);
                 statusList.Add(ContactAvailability.BusyIdle);
+                statusList.Add(ContactAvailability.DoNotDisturb);
             }
             if (clbStatuses.CheckedItems.ContainsKey("Do not disturb"))
                 statusList.Add(ContactAvailability.DoNotDisturb);
@@ -152,5 +157,27 @@ namespace LyncTracker
                 tbLog.Text = sfdSave.FileName.Contains(".csv") ? sfdSave.FileName : sfdSave.FileName+".csv";
         }
 
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            notifyIcon1.BalloonTipTitle = "Lync Tracker";
+            notifyIcon1.BalloonTipText = "Lync Tracker is still running in background!";
+
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(500);
+                this.Hide();
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                notifyIcon1.Visible = false;
+            }
+        }
     }
 }

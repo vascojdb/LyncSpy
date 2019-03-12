@@ -1,3 +1,11 @@
+## Changes from the original project:
+* Redesigned the UI. Now it is more compact.
+* Added minimize to tray. Now the app will minimize to the notification tray.
+* Added support for more status changes: DoNotDisturb + TemporarilyAway + Offline.
+* Workaround for email issues: The email you add to the list is not necessarily the same as the one taken from Lync so the function to assign colors to the contact balls may fail because of comparison failure. Changes were changing .First() to .Last(). **This may not work for you out of the box**.
+
+---
+
 # Lync Spy
 Monitors and sends notification of anyones status changes in Lync or Skype for Business
 

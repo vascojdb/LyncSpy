@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Available");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Away");
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Busy");
@@ -62,6 +63,7 @@
             this.tbLog = new System.Windows.Forms.TextBox();
             this.clbStatuses = new System.Windows.Forms.ListView();
             this.colHead1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -90,7 +92,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
@@ -100,7 +102,7 @@
             // 
             this.bRemove.Location = new System.Drawing.Point(15, 141);
             this.bRemove.Name = "bRemove";
-            this.bRemove.Size = new System.Drawing.Size(501, 23);
+            this.bRemove.Size = new System.Drawing.Size(295, 23);
             this.bRemove.TabIndex = 4;
             this.bRemove.Text = "&Remove selected";
             this.bRemove.UseVisualStyleBackColor = true;
@@ -110,19 +112,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(12, 167);
+            this.label3.Location = new System.Drawing.Point(9, 178);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(218, 13);
+            this.label3.Size = new System.Drawing.Size(183, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Send emails when status changes to:";
+            this.label3.Text = "Notify when status changes to:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbOff);
             this.groupBox1.Controls.Add(this.rbOn);
-            this.groupBox1.Location = new System.Drawing.Point(12, 391);
+            this.groupBox1.Location = new System.Drawing.Point(12, 405);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(504, 40);
+            this.groupBox1.Size = new System.Drawing.Size(298, 40);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "On/Off";
@@ -159,17 +162,17 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslStatus,
             this.tsslChange});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 437);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 458);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(533, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(325, 22);
             this.statusStrip1.TabIndex = 13;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // tsslStatus
             // 
             this.tsslStatus.Name = "tsslStatus";
-            this.tsslStatus.Size = new System.Drawing.Size(10, 17);
-            this.tsslStatus.Text = " ";
+            this.tsslStatus.Size = new System.Drawing.Size(153, 17);
+            this.tsslStatus.Text = " Modified by Vasco Baptista";
             // 
             // tsslChange
             // 
@@ -181,11 +184,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(12, 269);
+            this.label5.Location = new System.Drawing.Point(9, 283);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.Size = new System.Drawing.Size(115, 13);
             this.label5.TabIndex = 16;
-            this.label5.Text = "When changed:";
+            this.label5.Text = "Notification action:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // fileSystemWatcher1
             // 
@@ -196,7 +200,7 @@
             // 
             this.lvList.Location = new System.Drawing.Point(15, 39);
             this.lvList.Name = "lvList";
-            this.lvList.Size = new System.Drawing.Size(501, 96);
+            this.lvList.Size = new System.Drawing.Size(295, 96);
             this.lvList.TabIndex = 19;
             this.lvList.UseCompatibleStateImageBehavior = false;
             this.lvList.View = System.Windows.Forms.View.List;
@@ -205,10 +209,10 @@
             // 
             this.tbTabEmail.Controls.Add(this.tabPage1);
             this.tbTabEmail.Controls.Add(this.tabPage2);
-            this.tbTabEmail.Location = new System.Drawing.Point(15, 285);
+            this.tbTabEmail.Location = new System.Drawing.Point(12, 299);
             this.tbTabEmail.Name = "tbTabEmail";
             this.tbTabEmail.SelectedIndex = 0;
-            this.tbTabEmail.Size = new System.Drawing.Size(501, 100);
+            this.tbTabEmail.Size = new System.Drawing.Size(295, 100);
             this.tbTabEmail.TabIndex = 20;
             // 
             // tabPage1
@@ -220,7 +224,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(493, 74);
+            this.tabPage1.Size = new System.Drawing.Size(287, 74);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Send email";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -229,11 +233,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(403, 34);
+            this.label4.Location = new System.Drawing.Point(270, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(11, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "*";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // cbSendActive
             // 
@@ -250,7 +255,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 34);
+            this.label2.Location = new System.Drawing.Point(6, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(210, 13);
             this.label2.TabIndex = 21;
@@ -258,9 +263,9 @@
             // 
             // tbSendEmail
             // 
-            this.tbSendEmail.Location = new System.Drawing.Point(221, 31);
+            this.tbSendEmail.Location = new System.Drawing.Point(9, 48);
             this.tbSendEmail.Name = "tbSendEmail";
-            this.tbSendEmail.Size = new System.Drawing.Size(176, 20);
+            this.tbSendEmail.Size = new System.Drawing.Size(255, 20);
             this.tbSendEmail.TabIndex = 20;
             // 
             // tabPage2
@@ -273,14 +278,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(493, 74);
+            this.tabPage2.Size = new System.Drawing.Size(287, 74);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Save to CSV";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // bSearch
             // 
-            this.bSearch.Location = new System.Drawing.Point(421, 31);
+            this.bSearch.Location = new System.Drawing.Point(253, 46);
             this.bSearch.Name = "bSearch";
             this.bSearch.Size = new System.Drawing.Size(28, 23);
             this.bSearch.TabIndex = 25;
@@ -304,16 +309,17 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(403, 31);
+            this.label6.Location = new System.Drawing.Point(236, 51);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(11, 13);
             this.label6.TabIndex = 23;
             this.label6.Text = "*";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 34);
+            this.label7.Location = new System.Drawing.Point(6, 26);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 22;
@@ -321,9 +327,9 @@
             // 
             // tbLog
             // 
-            this.tbLog.Location = new System.Drawing.Point(88, 31);
+            this.tbLog.Location = new System.Drawing.Point(9, 48);
             this.tbLog.Name = "tbLog";
-            this.tbLog.Size = new System.Drawing.Size(309, 20);
+            this.tbLog.Size = new System.Drawing.Size(221, 20);
             this.tbLog.TabIndex = 21;
             // 
             // clbStatuses
@@ -341,9 +347,9 @@
             listViewItem2,
             listViewItem3,
             listViewItem4});
-            this.clbStatuses.Location = new System.Drawing.Point(15, 183);
+            this.clbStatuses.Location = new System.Drawing.Point(12, 194);
             this.clbStatuses.Name = "clbStatuses";
-            this.clbStatuses.Size = new System.Drawing.Size(112, 83);
+            this.clbStatuses.Size = new System.Drawing.Size(298, 77);
             this.clbStatuses.TabIndex = 22;
             this.clbStatuses.UseCompatibleStateImageBehavior = false;
             this.clbStatuses.View = System.Windows.Forms.View.Details;
@@ -352,11 +358,18 @@
             // 
             this.colHead1.Width = 100;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Lync Tracker";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 459);
+            this.ClientSize = new System.Drawing.Size(325, 480);
             this.Controls.Add(this.clbStatuses);
             this.Controls.Add(this.tbTabEmail);
             this.Controls.Add(this.lvList);
@@ -370,8 +383,11 @@
             this.Controls.Add(this.bAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Lync Tracker";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -418,6 +434,7 @@
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView clbStatuses;
         private System.Windows.Forms.ColumnHeader colHead1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

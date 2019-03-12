@@ -27,7 +27,7 @@ namespace LyncTracker.Logic
             if (_mf.lvList.InvokeRequired)
             {
                 ImageCallBack d = new ImageCallBack(ChangeImage);
-                _mf.Invoke(d, new object[] { email, status });
+                this._mf.Invoke(d, new object[] { email, status });
             }
             else
             {
