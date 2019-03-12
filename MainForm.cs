@@ -116,7 +116,7 @@ namespace LyncTracker
                 statusList.Add(ContactAvailability.Free);
                 statusList.Add(ContactAvailability.FreeIdle);
             }
-            if (checkedList.Any(it=>it.Text=="Away"))
+            if (checkedList.Any(it=>it.Text=="Away / Offline"))
             {
                 statusList.Add(ContactAvailability.Away);
                 statusList.Add(ContactAvailability.TemporarilyAway);
@@ -126,7 +126,6 @@ namespace LyncTracker
             {
                 statusList.Add(ContactAvailability.Busy);
                 statusList.Add(ContactAvailability.BusyIdle);
-                statusList.Add(ContactAvailability.DoNotDisturb);
             }
             if (clbStatuses.CheckedItems.ContainsKey("Do not disturb"))
                 statusList.Add(ContactAvailability.DoNotDisturb);

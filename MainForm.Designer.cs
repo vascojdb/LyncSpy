@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Available");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Away");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Away / Offline");
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Busy");
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Do not disturb");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
@@ -117,7 +117,6 @@
             this.label3.Size = new System.Drawing.Size(183, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Notify when status changes to:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // groupBox1
             // 
@@ -171,8 +170,8 @@
             // tsslStatus
             // 
             this.tsslStatus.Name = "tsslStatus";
-            this.tsslStatus.Size = new System.Drawing.Size(153, 17);
-            this.tsslStatus.Text = " Modified by Vasco Baptista";
+            this.tsslStatus.Size = new System.Drawing.Size(210, 17);
+            this.tsslStatus.Text = "https://github.com/vascojdb/LyncSpy";
             // 
             // tsslChange
             // 
@@ -189,7 +188,6 @@
             this.label5.Size = new System.Drawing.Size(115, 13);
             this.label5.TabIndex = 16;
             this.label5.Text = "Notification action:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // fileSystemWatcher1
             // 
@@ -238,7 +236,6 @@
             this.label4.Size = new System.Drawing.Size(11, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "*";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // cbSendActive
             // 
@@ -314,7 +311,6 @@
             this.label6.Size = new System.Drawing.Size(11, 13);
             this.label6.TabIndex = 23;
             this.label6.Text = "*";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -386,7 +382,6 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Lync Tracker";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
